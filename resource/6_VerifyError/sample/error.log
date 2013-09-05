@@ -1,0 +1,25 @@
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlDaoBaseSupport' defined in resource loader resource [denali/persistence/persistence.xml]: Cannot resolve reference to bean 'sqlMapTddlSafe' while setting bean property 'sqlMapList' with key [TypedStringValue: value [tddlsafe], target type [null]]; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlMapTddlSafe' defined in resource loader resource [denali/persistence/persistence.xml]: Cannot resolve reference to bean 'tddlMMSDataSource' while setting bean property 'dataSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tddlMMSDataSource' defined in resource loader resource [denali/persistence/persistence.xml]: Invocation of init method failed; nested exception is java.lang.VerifyError: (class: com/taobao/tddl/client/jdbc/TDataSourceConfig$3, method: $VRi signature: ()[[Z) Stack size too large 
+        at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:275)     
+        at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:110) 
+        at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveManagedMap(BeanDefinitionValueResolver.java:320)    
+        at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:140) 
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1095)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:857)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:423)
+        at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:249)
+        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:155)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:246)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:160)
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:291)
+        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:352)
+        at com.alibaba.service.spring.DefaultBeanFactoryService.init(DefaultBeanFactoryService.java:75)
+...... 212 more
+Caused by: java.lang.VerifyError: (class: com/taobao/tddl/client/jdbc/TDataSourceConfig$3, method: $VRi signature: ()[[Z) Stack size too large
+        at com.taobao.tddl.client.jdbc.TDataSourceConfig.toLogicTable(TDataSourceConfig.java:265)
+        at com.taobao.tddl.client.jdbc.TDataSourceConfig.buildSqlDispatcher(TDataSourceConfig.java:188)
+        at com.taobao.tddl.client.jdbc.TDataSourceConfig.init(TDataSourceConfig.java:174)
+        at com.taobao.tddl.client.jdbc.TDataSourceConfig.initByAppRuleFile(TDataSourceConfig.java:392)
+        at com.taobao.tddl.client.jdbc.TDataSourceConfig.init(TDataSourceConfig.java:367)
+        at com.taobao.tddl.client.jdbc.TDataSource.init(TDataSource.java:31)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        
